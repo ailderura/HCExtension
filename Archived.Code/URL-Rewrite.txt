@@ -1,0 +1,24 @@
+elseif re.find(url, [[(.*)\?(.*)]]..DataGlobal['ListSaveHit']) then --# for file with params and exist in regex ListSaveHit >> save using validation cache-control
+	reWrite(re.substr(1)..'/'..re.substr(2)..'.'..re.substr(3))
+
+
+---- string on table to code in lua
+
+local table_url = { --#
+	['1'] = { ['regex'] = [[^.*(explore\.com/)(.*)]], ['replace']  = [[re.substr(1)..'/'..re.substr(2)]]}, --#
+}
+
+-- loop table url
+for key,value in next, table_url, nil do
+	if re.find(url, value['regex']) then
+		hc.put_to_log(value['replace'])
+		reWrite(rwUrl..loadstring(value['replace']))
+		do return end
+	end	
+end		
+
+--
+	elseif re.find(url, [[^.*\.((googlevideo|drive\.google)\.com\/)videoplayback\?.*&itag=([0-9]+).*&lmt=([0-9]+).*]]) then --# googledrive sharer
+		reWrite(rwUrl206..'_GoogleDriveSharer/'..re.substr(4)..'/'..re.substr(4)..'-'..re.substr(3)..'.mp4',true)
+
+		^.*\.googlevideo\.com\/videoplayback\?.*(live=1|range=|ptk=)

@@ -1,0 +1,11 @@
+http://launcherlso.gnjoy.id//version/version_patch_info.txt?663004
+http://launcherlso.gnjoy.id/Client/config/sp2_etcitem_info.ini.iop?739289
+http://launcherlso.gnjoy.id/Client/config/sp2_quest_info.ini.iop?990161
+http://launcherlso.gnjoy.id/Client/config/sp2_quest_present.ini.iop?66446
+http://launcherlso.gnjoy.id/Client/config/sp2_setitem_info.ini.iop?66446
+http://launcherlso.gnjoy.id/Client/config/sp2_special_goods.ini.iop?66446
+http://launcherlso.gnjoy.id/Client/config/sp2_super_gashapon_present.ini.iop?66446
+http://launcherlso.gnjoy.id/Client/xml/itemresellwnd.xml.iop?175498
+http://launcherlso.gnjoy.id/Client/xml/myinventorywnd.xml.iop?175498
+http://launcherlso.gnjoy.id/Client/_map/resource/text/text_id.txt.iop?175498
+http://launcherlso.gnjoy.id/Client/_map/resource/texture/loading_default.dds.iop?829813

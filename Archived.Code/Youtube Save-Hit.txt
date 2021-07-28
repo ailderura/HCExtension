@@ -1,0 +1,105 @@
+-- extract cache filename > for validation
+-- range_cache_file_name = re.find(hc.cache_file_name, [[\d+\-(\d+)\-(\d+)]])
+-- range_cache_file_name_start = re.substr(1)
+-- range_cache_file_name_end = re.substr(2)
+-- range_cache_file_name_size = range_cache_file_name_end - range_cache_file_name_start + 1
+
+
+function RequestHeaderReceived()
+	-- validate url in blocklist, if exist > skip to process and block
+	if BlockURL() == false then
+	end
+end
+
+function BlockURL()
+
+	-- create table
+	youtubeads = {
+		'/youtubei/v1/log_event', --	
+		'/pagead/',
+		'api/stats/delayplay(.*)=adunit',
+	}	
+
+	-- build regex from table
+	regexads = '('..table.concat(youtubeads,"|")..')'
+
+	-- check url if exist in regex list
+	if re.find(hc.url, regexads) then --#
+		hc.action='stop'
+		hc.monitor_string = Monitor('block')
+		return true
+	end
+
+	return false
+end
+
+
+function BuildVideoIdentityForGoogleVideo(option)
+-- [disable first with out title]
+-- ytb_title =re.find(hc.answer_body, [[<meta name="title" content="([^"]+)">]], 1)		
+
+-- if ytb_title then
+-- 	ytb_title = re.replace(ytb_title, [[([\\\/\:\*\?\!\"\<\>\|])]], '' , true)
+
+-- 	-- Write Title by Youtube Identity in Temp
+-- 	hc.prepare_path(path_temp)   
+-- 	write_title = io.open(path_temp..ytb_identity, "w")
+-- 	write_title:write(decode_entity(convert_latin(ytb_title)))
+-- 	write_title:close()
+
+-- end
+-- Read Title on Temp # only for debugging !!!
+-- read_title = io.open(path_temp..ytb_identity, "r")   
+-- ytb_title = read_title:read('*a')
+-- hc.monitor_string = hc.monitor_string..', Title: '..ytb_title 
+-- read_title:close()
+end
+
+function URLToFileNameConverting()
+-- [disable first with out title]		
+-- -- Read Title on Temp
+-- read_title = io.open(path_temp..param_ytb_identity, "r")   
+-- ytb_title = read_title:read('*a')
+
+-- [disable first with out title]
+-- -- close read_title
+-- read_title:close()	
+end
+
+-- call other param
+param_itag = getparams['itag']
+param_range = getparams['range']
+param_clen = getparams['clen']
+-- if exist param_itag & param_range 
+if param_itag and param_range then  -- # range content
+	-- rewrite url StaticURL/video_id-range/itag - range
+	if re.find(hc.url, [[^.*\.googlevideo\.com\/videoplayback\?.*&itag=([0-9]+).*&range=([0-9]+\-[0-9]+).*]]) then
+		reWrite(DataGlobal['RewriteGdriveVid']['asURL']..ytb_identity..'-range/'..re.substr(1)..'-'..re.substr(2),false)
+	end	
+-- if exist param_itag and param_clen
+-- #message : param clen for validate size on hit process
+elseif param_itag and param_clen then --# single content
+	-- rewrite url >> StaticURL/video_id-norange/video_id-itag-clen
+	if re.find(hc.url, [[^.*\.googlevideo\.com\/videoplayback\?.*&itag=([0-9]+).*]]) then
+		reWrite(DataGlobal['RewriteGdriveVid']['asURL']..ytb_identity..'-norange/'..ytb_identity..'-'..re.substr(1)..'-'..param_clen..'.mp4',false)
+	end
+-- if exist param_itag and not exist param_range and param_clen
+elseif param_itag and not param_range and not param_clen then
+	-- rewrite url >> StaticURL/video_id-gdrive/video_id-itag
+	if re.find(hc.url, [[^.*\.googlevideo\.com\/videoplayback\?.*&itag=([0-9]+).*]]) then
+		reWrite(DataGlobal['RewriteGdriveVid']['asURL']..ytb_identity..'-gdrive/'..ytb_identity..'-'..re.substr(1)..'.mp4',false)
+	end				
+else 
+	--# message : this section ytb_identity exist but some video not have param itag and param_range or param_itag and param_clen...what i can do with this url
+	-- #debugging
+	hc.monitor_text_color = MonitorColor('red')
+	hc.monitor_string = Monitor('whaticandowiththisurl?')
+end
+
+if re.find(hc.url, [[^.*\.googlevideo\.com\/videoplayback\?.*&itag=([0-9]+).*&range=([0-9]+\-[0-9]+).*]]) then
+end
+
+if re.find(hc.url, [[^.*\.googlevideo\.com\/videoplayback\?.*&itag=([0-9]+).*&clen=([0-9]+)]]) then
+end
+
+^.*\.((googlevideo|drive\.google|youtube)\.com\/)videoplayback\?

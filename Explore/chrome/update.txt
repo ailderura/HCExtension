@@ -1,0 +1,10 @@
+http://edgedl.me.gvt1.com/edgedl/release2/chrome_component/adfqrx3mdheb5gohjsmy4zkc2vha_20210716.385544854/obedbbhbpmojnkanicioggnmelmoomoc_20210716.385544854_all_ENUS500000_nlezraopdkpl45o6z2xdtuorxy.crx3
+
+http://storage.googleapis.com/update-delta/ggkkehgbnfjpeggfpleeakpidbkibbmn/2021.7.11.1141/2021.6.21.1141/98d25e0cf2eaf9d40878f21a322df767a84387331a1f799def360e1ef7c7d367.crxd
+
+http://edgedl.me.gvt1.com/edgedl/release2/chrome_component/APW4eBl3rJ2S8ahCEEPLNVs_91.266.200/fyyHcoBysQ3WAvXxKF9lSg
+
+^.*(gvt[0-9]+\.com\/.*chrome_component\/.*)
+^.*(googleapis.com\/update-delta\/.*\.)
+
+http://edgedl.me.gvt1.com/edgedl/chromewebstore/L2Nocm9tZV9leHRlbnNpb24vYmxvYnMvNzI0QUFXNV9zT2RvdUwyMERESEZGVmJnQQ/1.0.0.6_nmmhkkegccagdldgiimedpiccmgmieda.crx

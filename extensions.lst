@@ -1,0 +1,10 @@
+HandyCache_list_Format_15
+False#~#Cache cleaner#~#Extensions\eCacheCleaner.lua
+True#~#Init#~#Extensions\1.Init.lua
+True#~#HideURL#~#Extensions\2.HideURL.lua
+True#~#Youtube [Init]#~#Extensions\3.Youtube Init.lua
+True#~#Youtube-GoogleDrive Video [Save-Hit]#~#Extensions\4.Youtube Video Save-Hit.lua
+True#~#Facebook [Init]#~#Extensions\5.Facebook Init.lua
+True#~#Facebook Video [Save-Hit]#~#Extensions\6.Facebook Video Save-Hit.lua
+True#~#Save-Hit #~#Extensions\7.Save-Hit.lua
+True#~#Pac#~#Extensions\aska_pac.lua

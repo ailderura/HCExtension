@@ -1,0 +1,109 @@
+-- first
+
+https://r5---sn-2uuxa3vh-jb3s.googlevideo.com/videoplayback?expire=1626601747&ei=s6TzYIXPEtKm3LUP7_upqA4&ip=125.161.118.82&id=o-AFQLwk_S4ie1kSaB0QRbLVMhrzpvpV14pBBOayv00_YP&itag=251&source=youtube&requiressl=yes&mh=yH&mm=31,29&mn=sn-2uuxa3vh-jb3s,sn-npoe7n76&ms=au,rdu&mv=m&mvi=5&pl=23&initcwndbps=842500&vprv=1&mime=audio/webm&ns=AzK6D8rQBKsOpYWXsoxMhQUG&gir=yes&clen=3733720&dur=236.901&lmt=1577450452302309&mt=1626579883&fvip=5&keepalive=yes&fexp=24001373,24007246&c=WEB&txp=5531432&n=ig2d4z8cRhtCPQ&sparams=expire,ei,ip,id,itag,source,requiressl,vprv,mime,ns,gir,clen,dur,lmt&lsparams=mh,mm,mn,ms,mv,mvi,pl,initcwndbps&lsig=AG3C_xAwRgIhAOnQ0yF-plLdb9nk3ClVp2KNemstWy1UJoScpCF5NGbbAiEAn7vikXnBZ-eiv-nIx5mHyErUcshkLyRbrEMU3Ou2hM4=&alr=yes&sig=AOq0QJ8wRAIgBrjscvYvHT2j_aUvnMzJC2XRzHK7MJueFVeXsR5FuIACIA4bp8jI1BxeZa9sHxkg1yjEWRrX_r1esPTxFqyHO9_1&cpn=qu4C7-fzavLsaCfR&cver=2.20210716.00.00&range=453963-775784&rn=17&rbuf=28251
+ 
+-- reload 1
+
+https://r5---sn-2uuxa3vh-jb3s.googlevideo.com/videoplayback?expire=1626601837&ei=DaXzYP2LFeq-3LUP0oiZkAw&ip=125.161.118.82&id=o-ANSqzrS4nc1N0jEr2w_j2-NExZrhIOa5cXMgHwzIoYR4&itag=243&aitags=133,134,135,136,160,242,243,244,247,278,298,299,302,303&source=youtube&requiressl=yes&mh=yH&mm=31,29&mn=sn-2uuxa3vh-jb3s,sn-npoeenl7&ms=au,rdu&mv=m&mvi=5&pcm2cms=yes&pl=23&initcwndbps=842500&vprv=1&mime=video/webm&ns=Sqzn2lUFLTro5N3T3hb63rgG&gir=yes&clen=8707913&dur=236.833&lmt=1577451466484414&mt=1626579883&fvip=5&keepalive=yes&fexp=24001373,24007246&c=WEB&txp=5535432&n=l8ZCQWNTF79zpQ&sparams=expire,ei,ip,id,aitags,source,requiressl,vprv,mime,ns,gir,clen,dur,lmt&lsparams=mh,mm,mn,ms,mv,mvi,pcm2cms,pl,initcwndbps&lsig=AG3C_xAwRQIgEqDBpgftCLd7qzzkucN5SxtwEJLdd7o7xqWMHk0d3MwCIQCsKqy1UQRYIu6M3a2CRwEkUgda1ccFmWdkpbDT3gRXvw==&alr=yes&sig=AOq0QJ8wRgIhANnnB8h_QwziG33LPhmQu8-fELI50T8DIlF0rO7OeOwsAiEA-6dWgoJ4x_7fHSMzIMR_hpwb-2U3HQ9X-2xGbv7lWDo=&cpn=UZIqvLivfjjVtVDH&cver=2.20210716.00.00&range=930891-1725708&rn=10&rbuf=19602
+
+-- reload 2
+
+https://r5---sn-2uuxa3vh-jb3s.googlevideo.com/videoplayback?expire=1626602148&ei=RKbzYIvvGbSZ3LUP7cOmsAE&ip=125.161.118.82&id=o-AKN9dpnPGFLk31dg_dL3eQlqVGfnS7m9dSU4PaK3KU6t&itag=251&source=youtube&requiressl=yes&mh=yH&mm=31%2C29&mn=sn-2uuxa3vh-jb3s%2Csn-npoe7n76&ms=au%2Crdu&mv=m&mvi=5&pl=23&initcwndbps=838750&vprv=1&mime=audio%2Fwebm&ns=CnAv0c20LKvxfe9OSxR9fkIG&gir=yes&clen=3733720&dur=236.901&lmt=1577450452302309&mt=1626580366&fvip=5&keepalive=yes&fexp=24001373%2C24007246&c=WEB&txp=5531432&n=FzyvHVSV8f034g&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cgir%2Cclen%2Cdur%2Clmt&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIhAJVb5dnf8WYIAvUGjRSD63JIY4_1kJpI0QjFRvCvXqvfAiBTsaYtRNEONSh5VAJH5XLkbzXQlPJL7XDWRAx7njFNeg%3D%3D&alr=yes&sig=AOq0QJ8wRQIhAMPDy1p5qsISM0XBkwZ5QAOYNUEC1vgNG9FLP9ceDV8OAiB5-c92IzgGW0lCCj_8l71G8Khv-yns0LOzpEUlNKRkTQ%3D%3D&cpn=luUMB2-VkByQzHxk&cver=2.20210716.00.00&range=550405-941890&rn=11&rbuf=25546
+
+-- skip video to other time
+
+https://r5---sn-2uuxa3vh-jb3s.googlevideo.com/videoplayback?expire=1626602148&ei=RKbzYIvvGbSZ3LUP7cOmsAE&ip=125.161.118.82&id=o-AKN9dpnPGFLk31dg_dL3eQlqVGfnS7m9dSU4PaK3KU6t&itag=251&source=youtube&requiressl=yes&mh=yH&mm=31%2C29&mn=sn-2uuxa3vh-jb3s%2Csn-npoe7n76&ms=au%2Crdu&mv=m&mvi=5&pl=23&initcwndbps=838750&vprv=1&mime=audio%2Fwebm&ns=CnAv0c20LKvxfe9OSxR9fkIG&gir=yes&clen=3733720&dur=236.901&lmt=1577450452302309&mt=1626580366&fvip=5&keepalive=yes&fexp=24001373%2C24007246&c=WEB&txp=5531432&n=FzyvHVSV8f034g&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cgir%2Cclen%2Cdur%2Clmt&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIhAJVb5dnf8WYIAvUGjRSD63JIY4_1kJpI0QjFRvCvXqvfAiBTsaYtRNEONSh5VAJH5XLkbzXQlPJL7XDWRAx7njFNeg%3D%3D&alr=yes&sig=AOq0QJ8wRQIhAMPDy1p5qsISM0XBkwZ5QAOYNUEC1vgNG9FLP9ceDV8OAiB5-c92IzgGW0lCCj_8l71G8Khv-yns0LOzpEUlNKRkTQ%3D%3D&cpn=luUMB2-VkByQzHxk&cver=2.20210716.00.00&range=3162559-3228094&rn=19&rbuf=0
+
+-- static parameter they can't change when i reload 
+sig = AOq0QJ8wR = 9 digit -- this static other video same
+fexp = 24001373,24007246 -- this static other video same
+mn = sn-2uuxa3vh-jb3s%2Csn-npoe7nes
+mt = 1626580611
+txp=5432432
+lmt = 1540627308647545 --  this same by mime
+
+-- test other video
+
+https://r5---sn-2uuxa3vh-jb3s.googlevideo.com/videoplayback?expire=1626602406
+ei=RqfzYNKTLKjG3LUPqqSugAY
+ip=125.161.118.82
+id=o-AHDhzTS0KprVMS7c4cDclgxIKVAj1bmT0G72Hk1AXOQ9
+itag=243
+aitags=133%2C134%2C135%2C160%2C242%2C243%2C244%2C278
+source=youtube
+requiressl=yes
+mh=H2
+mm=31%2C29
+mn=sn-2uuxa3vh-jb3s%2Csn-npoe7nes
+ms=au%2Crdu
+mv=m
+mvi=5
+pl=23
+initcwndbps=808750
+vprv=1
+mime=video%2Fwebm
+ns=lW3D91TWzHh3nsQtkPThbI4G
+gir=yes
+clen=10389447
+dur=403.400
+lmt=1540627308647545
+mt=1626580611
+fvip=5
+keepalive=yes
+fexp=24001373%2C24007246
+c=WEB
+txp=5432432
+n=N3gEBhS8gsO7Yw
+sparams=expire%2Cei%2Cip%2Cid%2Caitags%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cgir%2Cclen%2Cdur%2Clmt
+sig=AOq0QJ8wRAIgOlShr0jLy_sC_cuzKiqlHbQCsZM1NDbw4_akwQXkjoYCIHF-nbNuXds1R7042W5gW_L_hqK8yu5YsHcxNEQxI2I6
+lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps
+lsig=AG3C_xAwRQIgejrqyuMmvCyR9kajVukdzAfU5bRwqxMhF9nwYsYGRRECIQDlY_t-0HzUfij7BGBjYGD-Hbc_Djk1vh9Xmp-RWQLTjw%3D%3D
+alr=yes
+cpn=VxtjtJxItc0_ulDc
+cver=2.20210716.00.00
+range=0-95577
+rn=1
+rbuf=0
+
+-- reloaded
+
+https://r5---sn-2uuxa3vh-jb3s.googlevideo.com/videoplayback?expire=1626602445
+ei=bafzYNLiGoH23LUPha-EwAs
+ip=125.161.118.82
+id=o-ALrA6oxzsPdzbbtW5kl8N4oFahVqirflqe4c90EpV-Gq
+itag=243
+aitags=133%2C134%2C135%2C160%2C242%2C243%2C244%2C278
+source=youtube
+requiressl=yes
+mh=H2
+mm=31%2C29
+mn=sn-2uuxa3vh-jb3s%2Csn-npoe7nes
+ms=au%2Crdu
+mv=m
+mvi=5
+pl=23
+initcwndbps=808750
+vprv=1
+mime=video%2Fwebm
+ns=3dprgQ_qU4pUXa8VFIZR7uIG
+gir=yes
+clen=10389447
+dur=403.400
+lmt=1540627308647545
+mt=1626580611
+fvip=5
+keepalive=yes
+fexp=24001373%2C24007246
+c=WEB
+txp=5432432
+n=HM4m4kGE9VOkJg
+sparams=expire%2Cei%2Cip%2Cid%2Caitags%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cgir%2Cclen%2Cdur%2Clmt
+sig=AOq0QJ8wRQIhALE4hZ5PjY8KI8qWUMB3uNNpNJe3JCnTyXHwb7G-ldhBAiBoXoCsFSlTPjdTtvopBimIGoUCQLD0EiO_S6_Q4FYUsQ%3D%3D
+lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps
+lsig=AG3C_xAwRgIhAL7u6CqnhdU5jS76eCZC7YeUy046VEtYk6SZlpAT9eLpAiEA097fzfUy_hh5agaWpXjcU98rBm3OfjgO471CUUI1Gw0%3D
+alr=yes
+cpn=RPzAMLqFuYvXrQZn
+cver=2.20210716.00.00
+range=0-95577
+rn=1
+rbuf=0

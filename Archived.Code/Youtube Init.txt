@@ -1,0 +1,18 @@
+-- -- build table ads var
+-- table_ads_var = {
+-- 	['desktop_text_ads_blue_cta_button'] = "false", --#
+-- 	['enable_survey_ads_on_ytv_lr'] = "false",
+-- 	['fix_ads_tracking_for_swf_config_deprecation_mweb'] = "false",
+-- 	['release_player_on_abandon_for_bulleit_lr_ads_frontend'] = "false",
+-- 	['ad_pod_disable_companion_persist_ads_quality'] = "false",
+-- 	['html5_report_slow_ads_as_error'] = "false",
+-- 	['html5_de_dupe_content_video_loads_in_lifecycle_api'] = "false",
+-- 	['player_ads_set_adformat_on_client'] = "false",
+-- 	['html5_enable_ads_client_monitoring_log'] = "false",
+-- 	['web_player_ss_timeout_skip_ads'] = "false"		
+-- }
+-- -- loop table ads var
+-- for key,value in next, table_ads_var, nil do
+-- 	-- replace		
+-- 	hc.answer_body = string.gsub(hc.answer_body, key.."\\u003d[a-z]+", key.."\\u003d"..value)		
+-- end

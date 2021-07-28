@@ -1,0 +1,16 @@
+function BeforeViewInMonitor()
+	-- check if on rewrite url >> googlevideo
+	if re.find(hc.url, [[^.*\.((googlevideo|drive\.google)\.com\/)videoplayback\?]]) then
+		getparams = parseurl(hc.url)
+		reWrite(re.substr(1)..getparams['lmt']..'/'..getparams['lmt']..'-'..getparams['itag']..'.mp4',false)
+	end
+end
+
+-- after save check file if size not same with content length header
+-- # message : test only
+if isExist(hc.cache_file_name) and hc.cache_file_size < GetContentLength(hc.answer_header) then
+	hc.monitor_string = Monitor(hc.cache_file_size..'__'..GetContentLength(hc.answer_header))
+	-- delete cache for prevent loop request
+	hc.delete_file(DriveLetter..':\\'..hc.prepare_url(hc.url))
+	hc.monitor_string = Monitor('del file')
+end

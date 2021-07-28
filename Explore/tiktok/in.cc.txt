@@ -1,0 +1,62 @@
+https://s16.tiktokcdn.com/musical/resource/mtact/static/fonts/sofiapro-semibold.otf
+https://p16-sign-va.tiktokcdn.com/obj/tos-useast2a-p-0037-aiso/97ed4cb092fc4ccaa967fb39df7bbfb1?x-expires=1626739200&x-signature=d2Yx6qHbl0Q87xUdK2MpZyx6FAQ%3D
+https://p16-sign-va.tiktokcdn.com/obj/tos-useast2a-p-0037-aiso/218711a87997480eba097cabb2d6f828?x-expires=1626739200&x-signature=Qd7I1pLoejMfzdN0pqzmkaiQ3iE%3D
+
+
+https://p16-sign-va.tiktokcdn.com/obj/tos-useast2a-p-0037-aiso/52beddc9a05f4eaabb5e627e5fadea88_1626668699?x-expires=1626739200&x-signature=YqTaI91sQfq1iMC9CQZssVbcJPo%3D
+https://p16-sign-va.tiktokcdn.com/obj/tos-useast2a-p-0037-aiso/03adcd0a5a08464baf494e9bb7144cf4_1626508294?x-expires=1626739200&x-signature=rdG2WdVjqRNqvTQt1M5CB0dP%2FBk%3D
+https://p16-sign-va.tiktokcdn.com/obj/tos-useast2a-p-0037-aiso/17713013d52745ee8716c048465a0d03_1626492790?x-expires=1626739200&x-signature=IjlK0ezitcsINyeLR%2FbzSVWqxnc%3D
+https://p16-sign-va.tiktokcdn.com/obj/tos-useast2a-p-0037-aiso/f5770b08f9894fe6a59222b2173a136a_1626432911?x-expires=1626739200&x-signature=d088MqEYGGXoMw0wob9AvvhNQxI%3D
+https://p16-sign-va.tiktokcdn.com/obj/tos-useast2a-p-0037-aiso/b0646751812b46cba632fabf15e0ff9c_1626520942?x-expires=1626739200&x-signature=1NcmXZp7u5z0eTKpv%2BgXqFAqKVk%3D
+https://p16-sign-va.tiktokcdn.com/obj/tos-useast2a-p-0037-aiso/9179d946dff442ec9462d33c1bfb3b57?x-expires=1626739200&x-signature=uPjuUIIfkvzkQE93qgBpqKWVYNs%3D
+https://p16-sign-va.tiktokcdn.com/obj/tos-useast2a-p-0037-aiso/a63653f6431a4f708f834a89f6844106_1626408829?x-expires=1626739200&x-signature=gH184VQh%2FvcFBk7ErF4qqggG9%2Bw%3D
+https://p16-sign-va.tiktokcdn.com/obj/tos-useast2a-p-0037-aiso/389b53399a584e82b3639655566bf75e_1626420334?x-expires=1626739200&x-signature=oU24fGQ2rh3omqVcRl%2BdUJp03L4%3D
+https://p16-sign-va.tiktokcdn.com/obj/tos-useast2a-p-0037-aiso/1ae20092113f4acc82e766c3c4f88134_1626350927?x-expires=1626739200&x-signature=5rIyRhWqn6QYEkEgxHc8yNZyrjk%3D
+
+
+-- 206 partial
+
+-- video 1 first visit
+https://v16-web.tiktok.com/video/tos/alisg/tos-alisg-pve-0037/b0e33dbf020945538bcec6ba28cf1ed8/?a=1988&br=660&bt=330&cd=0%7C0%7C1&ch=0&cr=0&cs=0&cv=1&dr=3&ds=3&er=&expire=1626740159&ft=Q9BExEDO_4ka&l=2021071918154501024513320743074CC8&lr=tiktok&mime_type=video_mp4&net=0&pl=0&policy=2&qs=0&rc=M2s6bzU6ZnJ4NjMzODgzNEApOTU2OTU5OWVkNzc7Ojw1Z2dmNnNjcjQwL21gLS1kLy1zczViY14xLy0xYTYyYjJhYC86Yw%3D%3D&signature=430713f89eed71079f52067052dc21e8&tk=tt_webid_v2&vl=&vr=
+
+-- video 2 first visit
+
+https://v16-web.tiktok.com/video/tos/alisg/tos-alisg-pve-0037/27b8a68637d34a7ba734e1fe8d0a782f/?a=1988&br=5300&bt=2650&cd=0%7C0%7C1&ch=0&cr=0&cs=0&cv=1&dr=3&ds=3&er=&expire=1626740209&ft=Q9BExEDO_4ka&l=202107191816420102450701140407FD5C&lr=tiktok&mime_type=video_mp4&net=0&pl=0&policy=2&qs=0&rc=M29zZnhpbmc2NjMzODgzM0ApZzs0OTdpNGVlNzg7OTozZmcuMC5jNG80aS1gLS1kLzRzcy9gMWAyX2EtXmFjYDBfL2A6Yw%3D%3D&signature=76ca3f43ae782c7dd478022fa1d26970&tk=tt_webid_v2&vl=&vr=
+
+-- video 2 reload 
+
+https://v16-web.tiktok.com/video/tos/alisg/tos-alisg-pve-0037/27b8a68637d34a7ba734e1fe8d0a782f/?a=1988&br=5300&bt=2650&cd=0%7C0%7C1&ch=0&cr=0&cs=0&cv=1&dr=3&ds=3&er=&expire=1626740307&ft=Q9BExEDO_4ka&l=2021071918182001024501520502080B3D&lr=tiktok&mime_type=video_mp4&net=0&pl=0&policy=2&qs=0&rc=M29zZnhpbmc2NjMzODgzM0ApZzs0OTdpNGVlNzg7OTozZmcuMC5jNG80aS1gLS1kLzRzcy9gMWAyX2EtXmFjYDBfL2A6Yw%3D%3D&signature=1f34407b52b0f36662a9f659c67fb601&tk=tt_webid_v2&vl=&vr=
+
+-- video 3 first visit
+
+https://v16-web.tiktok.com/video/tos/useast2a/tos-useast2a-ve-0068c001/add1d3e8cd3e4ff5a5f21eba02e3d1e3/?a=1988&br=2016&bt=1008&cd=0%7C0%7C1&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&er=&expire=1626740408&ft=Q9BExEDO_4ka&l=202107191819560102450751981207C26C&lr=tiktok_m&mime_type=video_mp4&net=0&pl=0&policy=2&qs=0&rc=ajxmd250cjVlNTMzNzczM0ApMzM0Ozs2OTtoNzNmO2c7ZWdqc3JnazFkM2xgLS1kMTZzc2AzNTU0MC4tXmMxNV41MmM6Yw%3D%3D&signature=77d27b8e55646af0c8b37dd46f6945c0&tk=tt_webid_v2&vl=&vr=
+
+https://v9-id.tiktokcdn.com/31e014ff9f3c3ec7f856b708583853ef/60f6256b/video/tos/alisg/tos-alisg-pve-0037/1da32ca9e4ee41368deea12521af9356/?a=1180&br=2682&bt=1341&cd=0%7C0%7C1&ch=0&cr=0&cs=0&cv=1&dr=3&ds=3&er=&ft=Qq8ZeEDO_4ka&l=20210719192235010245065112320F1479&lr=tiktok&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2U1cXJtPGVnNTMzODgzM0ApM2Y2MzNnaGU2N2U4MztoZ2cyLy0vMm00XmZgLS1kLzRzc2E2LS4tMTUwYDY1XzRfNS86Yw%3D%3D&vl=&vr=
+
+-- explore
+tos-useast2a-ve-0068c001 = folder
+add1d3e8cd3e4ff5a5f21eba02e3d1e3 = video name
+&br = video name 2
+&bt = video name 3
+
+-- regex
+^.*(tiktok(cdn)?.com\/).*(tos-.*)(\/.*)\/.*&br=([0-9]+)&bt=([0-9]+).*
+
+-- replacement
+\1single_vid/\3\4-\5-\6.mp4
+
+-- message
+tiktok video in tiktokcdn and tiktok.com is same url if you split this to two folder you can write same file !!!
+
+- obj
+
+https://p16-sign-va.tiktokcdn.com/obj/tos-useast2a-p-0037-aiso/a679a45443ff48c5bf6cbb60bb0ef19e?x-expires=1626742800&x-signature=lXGY1KgoWRQYL3JCGdHpd71n3l0%3D
+https://p16-sign-va.tiktokcdn.com/obj/tos-useast2a-p-0037-aiso/0a1149ebc0014086ac2971ba644b6c60?x-expires=1626742800&x-signature=d7DK%2Fm5Py8XWDs%2FL7m%2FOfcxsPRg%3D
+
+https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/05aa446e3169434d90170852490eb09b?x-expires=1626742800&x-signature=PTRelW9fEYatwWtXsNuag%2FYHENs%3D
+https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/7690ee73e4134080878b6808fab360df?x-expires=1626742800&x-signature=6j6v3CU9P2r9lvpobhLlipwGV70%3D
+https://p16-sign-va.tiktokcdn.com/obj/tos-useast2a-p-0037-aiso/6640d069e6fe406190f8f61064e04790?x-expires=1626742800&x-signature=%2BwVAonxUycLgXzLpwdiySY3Ugmk%3D
+
+https://p16-sign-va.tiktokcdn.com/obj/tos-useast2a-p-0037-aiso/a679a45443ff48c5bf6cbb60bb0ef19e?x-expires=1626742800&x-signature=lXGY1KgoWRQYL3JCGdHpd71n3l0%3D
+
+tiktokcdn.com/obj/tos-useast2a-p-0037-aiso/a679a45443ff48c5bf6cbb60bb0ef19e

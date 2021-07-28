@@ -1,0 +1,18 @@
+-- youtube video
+@exception 		^.*\.googlevideo\.com\/videoplayback\?.*(live=1|range=|ptk=youtube_single)
+
+-- google drive video
+^.*\.((googlevideo|drive\.google)\.com\/)videoplayback\?.*&itag=([0-9]+).*&lmt=([0-9]+).*
+
+\1\4/\4-\3.mp4
+
+-- url google drive 206 not have param ptk !!!
+
+https://r7---sn-2uuxa3vh-jb3s.googlevideo.com/videoplayback?expire=1626794317&ei=zXj2YNDDKMn9zLUP0IWZ8Aw&ip=51.159.0.189&id=11654bed55c4f15d&itag=18&source=blogger&susc=bl&mime=video/mp4&vprv=1&dur=1490.674&lmt=1611777747579861&txp=1310224&sparams=expire,ei,ip,id,itag,source,susc,mime,vprv,dur,lmt&sig=AOq0QJ8wRQIgdg9cIbk5RxYstUwTMJFUYn15nsNDpxvrHw9tiuZy3MQCIQCxczUKtGo5e6ikYuHGbnTZzF8VaYJ7NtY7cCLj8KGHcQ%3D%3D&cms_redirect=yes&mh=1n&mip=125.161.118.82&mm=31&mn=sn-2uuxa3vh-jb3s&ms=au&mt=1626766602&mv=m&mvi=7&pl=23&lsparams=mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRgIhAPyJqlRczHU93c1_nLO23lE5Xako9yg-l-XpsBQj0ByEAiEAlTJ1J1UX9Pp5RkOXMjWFUbqiNd32LWMBmep7mIKUA7g%3D
+
+-- url youtube video 206
+
+https://r5---sn-a5msenes.googlevideo.com/videoplayback?expire=1626788613&ei=pX72YIHENZSuwgPOjKCYDQ&ip=125.161.118.82&id=o-AFCsZh8JdN1iNPt_OvsXx1GcFTuTamdS9QqYPsFVck8d&itag=18&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&ns=JC8mSE4lriU3FfZQv5pfvrYG&gir=yes&clen=34673698&ratebypass=yes&dur=728.200&lmt=1613298015496000&fexp=24001373,24007246&c=WEB&txp=5530434&n=K0okFnziIFIXHQ&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgBpwMHQuADst1LypeU1MaLu7v8zUItsvb7OMmR31GAMICIDtT0HzJjWg90M2KpR1VNueoc44JTvWT-23OH1kGbRw3&cpn=sabZdDFWnjvcARu2&cver=2.20210719.00.00&ptk=youtube_single&oid=734ZgBrFadZBaCuAuRrlZg&ptchn=8ko5VYmFjaeZooNtkUMqSQ&pltype=content&cm2rm=sn-2uuxa3vh-jb3e67e&req_id=d744341cc72536e2&redirect_counter=2&rm=sn-nposs76&cms_redirect=yes&mh=0S&mm=39&mn=sn-a5msenes&ms=ltr&mt=1626766578&mv=m&mvi=5&pl=23&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIgVjAwtHBofYH1_fDiSikFNZrO29Vc3reSUuU5i8KcBLACIQCAI6pEG_MMS5hiZ4PeGOwKOhiwH2X0Y1y3-z_INRsiHA%3D%3D
+
+-- url 2 youtube video 206
+https://r7---sn-2uuxa3vh-jb3s.googlevideo.com/videoplayback?expire=1626788777&ei=SX_2YIrtG8S3z7sP-N6VCA&ip=125.161.118.82&id=o-AGwyFKBVDnadhi7mIYlO7J4WbQlSkYF4VJzrFLQPqT98&itag=18&source=youtube&requiressl=yes&mh=qN&mm=31%2C29&mn=sn-2uuxa3vh-jb3s%2Csn-npoe7nsl&ms=au%2Crdu&mv=m&mvi=7&pcm2cms=yes&pl=23&initcwndbps=837500&vprv=1&mime=video%2Fmp4&ns=xA_wlC7oudPxwAkoorldXysG&gir=yes&clen=7666831&ratebypass=yes&dur=85.797&lmt=1541996295042940&mt=1626766842&fvip=1&fexp=24001373%2C24007246&c=WEB&txp=5431432&n=kvHp9hV_ABifRw&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRgIhAP-_RJS9VHeX9e9kBe5tkWPrw07QohP6JstIWac-ghiTAiEAvLTCkPFcRl-QDWruNan6ptuxHuuane8BjlOYyYHXq3o%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpcm2cms%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIhAMVQoO0oHQWRdVM-K2VHAy_mr2z40eZaBbd3DgekpQs2AiB6tM1HEh_pQhgoLfv0tpfg67TbLzFrW76hMWX-URF0uQ%3D%3D&cpn=mG_Y0L5-r8TwhGMN&cver=2.20210719.00.00&ptk=youtube_none&pltype=contentugc
