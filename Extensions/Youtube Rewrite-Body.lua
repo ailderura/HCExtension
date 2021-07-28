@@ -1,5 +1,5 @@
 --[[ <HCExtension>
-@name			Youtube [Init]
+@name			Youtube [Rewrite-Body]
 @author			Faan
 @version		Juli 2021 - v1.0
 @description	Youtube Manipulation answer_body
@@ -41,23 +41,23 @@ end
 
 function BeforeAnswerBodySend()
 	-- # This process call from BeforeRequestHeaderSend
-	if VarInit['InitYoutube']['RestrictMode'] then
+	if VarInit['YoutubeVarGlobal']['RestrictMode'] then
 		RestrictMode()
 	end		
-	if VarInit['InitYoutube']['AutoPlayOFF'] then
+	if VarInit['YoutubeVarGlobal']['AutoPlayOFF'] then
 		AutoPlayOFF()			
 	end	
-	if VarInit['InitYoutube']['RemoveAds'] then
+	if VarInit['YoutubeVarGlobal']['RemoveAds'] then
 		RemoveAds()			
 	end
-	if VarInit['InitYoutube']['SetQuality_method'] == 'var' then
+	if VarInit['YoutubeVarGlobal']['SetQuality_method'] == 'var' then
 		-- Call function Set Quality
-		SetQualityVar(VarInit['InitYoutube']['SetQuality_method_var'])
-	elseif VarInit['InitYoutube']['SetQuality_method'] == 'basejs' then --#
+		SetQualityVar(VarInit['YoutubeVarGlobal']['SetQuality_method_var'])
+	elseif VarInit['YoutubeVarGlobal']['SetQuality_method'] == 'basejs' then --#
 		-- if on url youtube.com...base.js
 		if re.find(hc.url, [[^.*youtube.com/s/player/.*/base.js]]) then
 			-- Call function SetQualityBaseJS
-			SetQualityBaseJS(VarInit['InitYoutube']['SetQuality_method_basejs'])			
+			SetQualityBaseJS(VarInit['YoutubeVarGlobal']['SetQuality_method_basejs'])			
 		end	
 	end	
 end

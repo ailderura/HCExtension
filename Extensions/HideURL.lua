@@ -22,7 +22,7 @@
 local VarInit = hc.get_global('DataGlobal')
 
 function BeforeViewInMonitor()
-	if re.match(hc.url, VarInit['HideList']) then
+	if re.match(hc.url, VarInit['HideListVarGlobal']) then
 		hc.hide_in_active_list = true
 		hc.hide_in_monitor = true
 	end

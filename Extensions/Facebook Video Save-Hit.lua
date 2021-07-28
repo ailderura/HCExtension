@@ -108,11 +108,11 @@ function URLToFileNameConverting()
 	-- if exist param bytestart and byteend = range
 	if param_bytestart and param_byteend then
 		extract_url = re.find(hc.url, [[^.*(fbcdn\.net\/)v\/(.*)(\/.*)_n\.(mp4|webm)\?.*&bytestart=([0-9]+)&byteend=([0-9]+).*]]) --#
-		new_file = 'range-'..re.substr(2)..re.substr(3)..re.substr(3)..'_'..re.substr(5)..'-'..re.substr(6) --#
+		new_file = 'range/'..re.substr(2)..re.substr(3)..re.substr(3)..'_'..re.substr(5)..'-'..re.substr(6) --#
 	-- if exist param bytestart and byteend = single
 	elseif not param_bytestart and not param_byteend then --#
 		extract_url = re.find(hc.url, [[^.*(fbcdn\.net\/)v\/(.*)(\/.*)_n\.(mp4|webm)\?.*]]) --#
-		new_file = 'single-'..re.substr(2)..re.substr(3)..re.substr(3)..'.'..re.substr(4) --#
+		new_file = 'single/'..re.substr(2)..re.substr(3)..re.substr(3)..'.'..re.substr(4) --#
 	end
 	hc.preform_cache_file_name(hc.cache_path..'_FBVIDEO\\'..hc.prepare_url(new_file))	
 end
