@@ -33,3 +33,8 @@ http://akmcdn.ml.youngjoygame.com/res_version5/CloneImbaMode/101.1/LoadResSingle
 http://akmcdn.ml.youngjoygame.com/res_version5/CloneImbaOneRoadMode/81.1/LoadResSingleModeMd5.bytes
 http://akmcdn.ml.youngjoygame.com/res_version5/DayBreakMode/65.1/LoadResSingleModeMd5.bytes
 http://akmcdn.ml.youngjoygame.com/res_version5/HotHeroMode/16.1/LoadResSingleModeMd5.bytes
+
+-- error
+http://akmcdn.ml.youngjoygame.com/res_version5/654.1/Art/android/hero_jetarcher_skin05_add.unity3d
+
+_StaticContent/validate-use-clen/ml.youngjoygame.com/res_version5/654.1/Art/android/hero_jetarcher_skin05_add.unity3d

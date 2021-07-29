@@ -8,19 +8,7 @@
 @event	 		RequestHeaderReceived
 </HCExtension>]]
 
---|=== Integrate File
---| -----------------
---| - _Helper.lua
---| - Init.lua
---| 
---|=== Change Log :
---| --------------------
---| * v1.0 - 20 Juli 2021
---| - Created
---| - optimize code
---| - fix regex converting
-
-require '_Helper'
+require 'Helper'
 
 function RequestHeaderReceived()
 	if Hit() == false then

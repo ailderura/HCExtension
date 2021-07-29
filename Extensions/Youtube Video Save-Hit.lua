@@ -1,39 +1,30 @@
 --[[ <HCExtension>
 @name			Youtube & GoogleDrive Video [Save-Hit]
 @author			Faan
-@version		18 Juli 2021 - v1.1
+@version		18 Juli 2021 - v1.2
 @description	Save-Hit Youtube & GoogleDrive Video
 @exception		live=1&
 @rule 			^.*\.((googlevideo|drive\.google|youtube)\.com\/)videoplayback\?
 @rule			youtube\.com
+@event 			Init
 @event 			URLToFileNameConverting
 @event 			BeforeViewInMonitor
 @event 			RequestHeaderReceived
 </HCExtension> ]]
 
---|=== Integrate File
---| -----------------
---| - _Helper.lua
---| - Init.lua
---| - NgeYoutube Init.lua
---| 
---|=== Change Log :
---| --------------------
---| * v1.0 - Juli 2021
---| - Created
---| - This extension not working fully when using hc 645 because request url can be hidden on any time
---| * v1.1 - 18 Juli 2021
---| - New method to save googlevideo (can run on 645 version)
---| - Old method don't delete for future if the new method not working
---| - optimize code
+require "Helper"
 
-require '_Helper'
-
-local VarInit = hc.get_global('DataGlobal')
--- set var for cache folder location		
-DriveLetter = VarInit['YoutubeVarGlobal']['DriveLetter']
-if not DriveLetter then DriveLetter = hc.cache_path end -- if DriveLetter None set to default folder cache
-TempPath = DriveLetter..VarInit['YoutubeVarGlobal']['RewriteString']..'\\_Temp\\'
+function Init()
+	hc_static.YoutubeVarGlobal = {	
+		['DriveLetter'] 				= '', -- if empty can save on default folder cache. to external dir insert : "C:\\"
+		['RewriteURL'] 					= '_YoutubeWUZZ/', 
+		['RewriteString'] 				= '_YoutubeWUZZ',
+	} --#
+	-- set var for cache folder location		
+	hc_static.DriveLetter = hc_static.YoutubeVarGlobal['DriveLetter']
+	if not hc_static.DriveLetter then hc_static.DriveLetter = hc.cache_path end -- if DriveLetter None set to default folder cache
+	hc_static.TempPath = hc_static.DriveLetter..hc_static.YoutubeVarGlobal['RewriteString']..'\\_Temp\\'
+end
 
 function RequestHeaderReceived()
 	-- #message : this code disable becaouse googlevideo have static identity, when reload string not change on lmt parameter ! 
@@ -45,7 +36,7 @@ function RequestHeaderReceived()
 		-- hc.call_me_for('BeforeAnswerBodySend', 'BeforeAnswerBodySend')	
 	-- end
 	-- site googlevideo
-	if re.match(hc.url, VarInit['YoutubeVarGlobal']['RewriteURL']) then				
+	if re.match(hc.url, hc_static.YoutubeVarGlobal['RewriteURL']) then				
 		-- if content not hit and method = 'GET' 
 		if Hit() == false and hc.method == 'GET' then
 			-- Call Save for checking content for saveable
@@ -57,7 +48,7 @@ end
 function Hit()
 	-- cache exist and cache size > 0 
 	-- #message : add other validation for best performance
-	if isExist(hc.cache_file_name) == true and hc.cache_file_size > 0 then
+	if isExist(hc.cache_file_name) and hc.cache_file_size > 0 then
 		-- video as range
 		if re.find(hc.url, [[\/range\/.*\/([0-9]+)-([0-9]+)-([0-9]+)]]) then
 			-- get value from previous re.find
@@ -95,14 +86,14 @@ function ProcessHit(log)
 end
 
 function BeforeAnswerHeaderSend()
-	new_answer_header = RewriteAnswerHeader({ --#
+	new_answer_header = RewriteAnswerHeader({
 		['del_last_modified'] = true,
 		['del_server'] = true,	
 		['add_cache_control'] = true,		
 		['add_cors'] = true
 	}) --#
-	-- cors for googlevideo #required & important, prevent error when load cache
-	if re.match(hc.url, VarInit['YoutubeVarGlobal']['RewriteURL']) then -- # cors for youtube
+	-- cors for googlevideo #important, prevent error when load cache
+	if re.match(hc.url, hc_static.YoutubeVarGlobal['RewriteURL']) then -- # cors for youtube
 		-- add Header for vertification url with youtube.com/watch
 		if OriginExist(hc.request_header) then
 			local origin = GetOrigin(hc.request_header)
@@ -179,7 +170,7 @@ function YoutubeIDtoGoogleVideo(option)
 	-- on path youtube/api/stats/qoe?event=streamingstats and exist param cpn and docid & option page-click
 	-- #message : method#2 >> set unique var global with value youtube id >> when on googlevideo domain validate using parameter >> cpn from youtube-site == cpn from googlevideo
 	elseif option == 'page-streamingstats' and re.find(hc.url, [[youtube.com\/(api\/stats\/qoe\?event=streamingstats).*&(cpn=).*(docid=).*]]) then --#
-    	-- extract url    	
+    	-- extract url   
     	getparams = parseurl(hc.url)
     	param_cpn = getparams['cpn']
     	param_docid = getparams['docid']    	
@@ -188,10 +179,10 @@ function YoutubeIDtoGoogleVideo(option)
     		-- set var 
     		ytb_identity = param_docid	
     		-- check if cpn not exist in temp folder >> for no reprocess again
-    		if param_cpn and not isFileExist(TempPath..param_cpn) then --#		
+    		if param_cpn and not isFileExist(hc_static.TempPath..param_cpn) then --#		
 				-- set session to create file in temp folder
-				hc.prepare_path(TempPath)
-				local cpn_write = io.open(TempPath..param_cpn, "w")
+				hc.prepare_path(hc_static.TempPath)
+				local cpn_write = io.open(hc_static.TempPath..param_cpn, "w")
 				cpn_write:write(ytb_identity)
 				cpn_write:close()
 				-- #debugging
@@ -229,8 +220,8 @@ function BeforeViewInMonitor()
 			-- #debugging
 			-- hc.monitor_string = Monitor('yt_id.parameter')
 		-- set ytb_identity from cpn on temp folder 
-		elseif param_cpn and isFileExist(TempPath..param_cpn) then --#
-			local cpn_read = io.open(TempPath..param_cpn, "r") 
+		elseif param_cpn and isFileExist(hc_static.TempPath..param_cpn) then --#
+			local cpn_read = io.open(hc_static.TempPath..param_cpn, "r") 
 			ytb_identity = cpn_read:read('*a')
 			cpn_read:close()
 			-- #debugging
@@ -251,16 +242,16 @@ function BeforeViewInMonitor()
 
 			if param_itag and param_range then  -- # range content
 				-- rewrite url StaticURL/video_id-range/itag - range
-				reWrite(VarInit['YoutubeVarGlobal']['RewriteURL']..'range/'..ytb_identity..'/'..param_itag..'-'..param_range,false)
+				reWrite(hc_static.YoutubeVarGlobal['RewriteURL']..'range/'..ytb_identity..'/'..param_itag..'-'..param_range,false)
 			elseif param_itag and param_ptk then --# single content
 				-- rewrite url >> StaticURL/video_id-norange/video_id-itag
-				reWrite(VarInit['YoutubeVarGlobal']['RewriteURL']..'norange/'..ytb_identity..'/'..ytb_identity..'-'..param_itag..'.mp4',false)
+				reWrite(hc_static.YoutubeVarGlobal['RewriteURL']..'norange/'..ytb_identity..'/'..ytb_identity..'-'..param_itag..'.mp4',false)
 			elseif param_itag and getparams['source'] ~= 'yt_otf' then --# gdrive
 				-- rewrite url >> StaticURL/video_id-gdrive/video_id-itag
-				reWrite(VarInit['YoutubeVarGlobal']['RewriteURL']..'gdrive/'..ytb_identity..'/'..ytb_identity..'-'..param_itag..'.mp4',false)				
+				reWrite(hc_static.YoutubeVarGlobal['RewriteURL']..'gdrive/'..ytb_identity..'/'..ytb_identity..'-'..param_itag..'.mp4',false)				
 			elseif param_itag and getparams['sq'] and getparams['source'] == 'yt_otf' then -- # range-sq (url not contain param range but sq is dynamical value)
 				-- rewrite url >> StaticURL/video_id-range-sq/itag - sq - rn
-				reWrite(VarInit['YoutubeVarGlobal']['RewriteURL']..'range-sq/'..ytb_identity..'/'..param_itag..'-'..getparams['sq']..'-'..getparams['rn'],false)								
+				reWrite(hc_static.YoutubeVarGlobal['RewriteURL']..'range-sq/'..ytb_identity..'/'..param_itag..'-'..getparams['sq']..'-'..getparams['rn'],false)								
 			else
 				-- #debugging
 				hc.monitor_text_color = MonitorColor('red')
@@ -272,8 +263,8 @@ end
 
 function URLToFileNameConverting()
 	-- check if on rewrite url >> googlevideo
-	if re.find(hc.url, VarInit['YoutubeVarGlobal']['RewriteURL']) then
+	if re.find(hc.url, hc_static.YoutubeVarGlobal['RewriteURL']) then
 		-- set cache file name with drive letter custom
-		hc.preform_cache_file_name(DriveLetter..hc.prepare_url(hc.url))	
+		hc.preform_cache_file_name(hc_static.DriveLetter..hc.prepare_url(hc.url))	
 	end
 end

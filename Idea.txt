@@ -1,2 +1,4 @@
 String Replace (GSUB)
 Element Hider (Div/Class)
+
+Move Global Variable to Inline Variable (for performance)

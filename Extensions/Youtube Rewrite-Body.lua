@@ -1,28 +1,29 @@
 --[[ <HCExtension>
 @name			Youtube [Rewrite-Body]
 @author			Faan
-@version		Juli 2021 - v1.0
+@version		Juli 2021 - v1.1
 @description	Youtube Manipulation answer_body
 @rule			youtube\.com
+@event 			Init
 @event 			BeforeRequestHeaderSend
 </HCExtension> ]]
 
---|=== Integrate File
---| -----------------
---| - _Helper.lua
---| - Init.lua
---| 
---|=== Change Log :
---| ---------------
---| * v1.0 - Juli 2021
---| - Created
---| - This extension not working fully when using hc 645 because request url can be hidden on any time
---| - All manipulation answer_body didn't work when url is hidden on log monitor
---| - optimize code
+require 'Helper'
 
-require '_Helper'
-
-local VarInit = hc.get_global('DataGlobal')
+function Init()
+	hc_static.YoutubeVarGlobal = {	
+	['RestrictMode'] 				= false, -- boolean
+	['AutoPlayOFF'] 				= false, -- boolean
+	['RemoveAds'] 					= false,-- boolean
+	['SetQuality_method'] 			=  'var', -- var / basejs
+	['SetQuality_method_basejs'] 	= 'small', -- string small,medium,large,hd720, ...
+	['SetQuality_method_var'] 		= {
+		['default'] = 360, -- number 144,240,360,480,720
+		['min'] = 360, -- number 144,240,360,480,720 -- MIN > MAX = SINGLE FILE
+		['max'] = 360  --number 144,240,360,480,720
+	} --#	
+} --#
+end
 
 function BeforeRequestHeaderSend()
 
@@ -41,23 +42,23 @@ end
 
 function BeforeAnswerBodySend()
 	-- # This process call from BeforeRequestHeaderSend
-	if VarInit['YoutubeVarGlobal']['RestrictMode'] then
+	if hc_static.YoutubeVarGlobal['RestrictMode'] then
 		RestrictMode()
 	end		
-	if VarInit['YoutubeVarGlobal']['AutoPlayOFF'] then
+	if hc_static.YoutubeVarGlobal['AutoPlayOFF'] then
 		AutoPlayOFF()			
 	end	
-	if VarInit['YoutubeVarGlobal']['RemoveAds'] then
+	if hc_static.YoutubeVarGlobal['RemoveAds'] then
 		RemoveAds()			
 	end
-	if VarInit['YoutubeVarGlobal']['SetQuality_method'] == 'var' then
+	if hc_static.YoutubeVarGlobal['SetQuality_method'] == 'var' then
 		-- Call function Set Quality
-		SetQualityVar(VarInit['YoutubeVarGlobal']['SetQuality_method_var'])
-	elseif VarInit['YoutubeVarGlobal']['SetQuality_method'] == 'basejs' then --#
+		SetQualityVar(hc_static.YoutubeVarGlobal['SetQuality_method_var'])
+	elseif hc_static.YoutubeVarGlobal['SetQuality_method'] == 'basejs' then --#
 		-- if on url youtube.com...base.js
 		if re.find(hc.url, [[^.*youtube.com/s/player/.*/base.js]]) then
 			-- Call function SetQualityBaseJS
-			SetQualityBaseJS(VarInit['YoutubeVarGlobal']['SetQuality_method_basejs'])			
+			SetQualityBaseJS(hc_static.YoutubeVarGlobal['SetQuality_method_basejs'])			
 		end	
 	end	
 end
