@@ -73,7 +73,7 @@ function Save()
 	if param_bytestart and param_byteend then
 		ProcessSave('fb.save.200') --#
 	elseif not param_bytestart and not param_byteend then --#
-		if isContentRangeStart(hc.answer_header) then --# single video
+		if IsSaveable206(hc.answer_header) then --# single video
 			ProcessSave('fb.save.206')
 		else
 			hc.monitor_string = Monitor('fb.skip.206')

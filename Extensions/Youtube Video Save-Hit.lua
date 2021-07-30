@@ -19,6 +19,7 @@ function Init()
 		['DriveLetter'] 				= '', -- if empty can save on default folder cache. to external dir insert : "C:\\"
 		['RewriteURL'] 					= '_YoutubeWUZZ/', 
 		['RewriteString'] 				= '_YoutubeWUZZ',
+		['LimitSize'] 					= 30, -- 30Mb	
 	} --#
 	-- set var for cache folder location		
 	hc_static.DriveLetter = hc_static.YoutubeVarGlobal['DriveLetter']
@@ -86,11 +87,11 @@ function ProcessHit(log)
 end
 
 function BeforeAnswerHeaderSend()
-	new_answer_header = RewriteAnswerHeader({
-		['del_last_modified'] = true,
-		['del_server'] = true,	
-		['add_cache_control'] = true,		
-		['add_cors'] = true
+new_answer_header = RewriteAnswerHeader({
+	['del_last_modified'] = true,
+	['del_server'] = true,	
+	['add_cache_control'] = true,		
+	['add_cors'] = true
 	}) --#
 	-- cors for googlevideo #important, prevent error when load cache
 	if re.match(hc.url, hc_static.YoutubeVarGlobal['RewriteURL']) then -- # cors for youtube
@@ -125,14 +126,14 @@ function Save()
 		ProcessSave('yt.save.sq.200')
 	-- video as norange		
 	elseif re.find(hc.url, [[\/norange\/]]) then --#
-		if isContentRangeStart(hc.answer_header) then
+		if IsSaveable206(hc.answer_header) then
 			ProcessSave('yt.save.206')
 		else
 			hc.monitor_string = Monitor('yt.skip.206')
 		end
 	-- video as gdrive		
 	elseif re.find(hc.url, [[\/gdrive\/]]) then --#
-		if isContentRangeStart(hc.answer_header) then
+		if IsSaveable206(hc.answer_header) then
 			ProcessSave('gdrive.save.206')
 		else
 			hc.monitor_string = Monitor('gdrive.skip.206')
@@ -214,6 +215,14 @@ function BeforeViewInMonitor()
 		getparams = parseurl(hc.url)
 		param_ytb_identity = getparams['ytb_identity']
 		param_cpn = getparams['cpn']
+
+		-- skip if param clen > 30Mb
+		if getparams['clen'] and tonumber(getparams['clen']) >= hc_static.YoutubeVarGlobal['LimitSize'] * 1024 * 1024 then 
+			hc.monitor_text_color = MonitorColor('pink')
+			hc.monitor_string = Monitor('skip.big.size')
+			do return end 
+		end
+
 		-- set ytb_identity from parameter on googlevideo
 		if param_ytb_identity then
 			ytb_identity = param_ytb_identity			

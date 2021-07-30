@@ -3,6 +3,6 @@ False#~#Cache cleaner#~#Extensions\eCacheCleaner.lua
 True#~#HideURL#~#Extensions\HideURL.lua
 True#~#Youtube [Rewrite-Body]#~#Extensions\Youtube Rewrite-Body.lua
 True#~#Youtube & GoogleDrive Video [Save-Hit]#~#Extensions\Youtube Video Save-Hit.lua
-False#~#Facebook Video [Save-Hit]#~#Extensions\Facebook Video Save-Hit.lua
+True#~#Facebook Video [Save-Hit]#~#Extensions\Facebook Video Save-Hit.lua
 True#~#Save-Hit [Cache-Control & Rewrite]#~#Extensions\Save-Hit CC-RW.lua
 False#~#Pac#~#Extensions\aska_pac.lua

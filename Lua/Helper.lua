@@ -90,8 +90,19 @@ end
 
 --| Header Headers Validation
 
-function isSaveable(res)
+function isSaveableCC(res)
 	if re.match(res, '[cC]ache-[cC]ontrol: (public|(max-age|s-maxage)=[^ 0]+[0-9]+|immutable)') then d = true else d = false end return d
+end
+
+function IsSaveable206(s)
+	if isContentRangeStart(s) then
+		crange = GetContentRange(s)
+		crange_end = re.replace(crange, [[.*\/(.*)]], '\\1')
+		clength = GetContentLength(s)
+		-- hc.monitor_string = crange_end..'__'..clength
+		if tonumber(crange_end) == clength then return true end
+	end
+	return false
 end
 
 function isContentRangeStart(res)
@@ -124,58 +135,14 @@ end
 --| Header about URL
 --|
 
-function GetURL(s)
-	_,_,x = string.find(s, '[gG]ET *([^;\r\n]+) HTTP/')
-	if x==nil then return -1 else return x end
-end
-
 function GetAnswerCode(s)
 	_,_,x = string.find(s, 'HTTP/1%.%d +(%d+)')
 	if x==nil then return -1 else return tonumber(x) end
 end
 
-function GetReferer(s)
-	_,_,x = string.find(s, [[Referer:(.*?)]])
-	if x==nil then return -1 else return x end
-end
-
-function GetContentType(s)
-	_,_,x = string.find(s, '[cC]ontent%-[tT]ype: *(.-) *\r?\n')
-	if x==nil then return -1 else return string.lower(x) end
-end
-
-function GetHost(s)
-	_,_,x = string.find(s, '[hH]ost: *([^;\r\n]+)')
-	if x==nil then return -1 else return x end
-end
-
---|
---| Header Browser
---|
-
-function GetUserAgent(s)
-	_,_,x = string.find(s, '[uU]ser%-[aA]gent: *([^\r\n]+)')
-	if x==nil then return -1 else return x end
-end
-
-
---|
---| Header Storage
---|
-
-function GetCookie(s)
-	_,_,x = string.find(s, '[cC]ookie: *([^\r\n]+)')
-	if x==nil then return -1 else return x end
-end
-
 --|
 --| Header Range - Length
 --|
-
-function GetContentLength(s)
-	_,_,x = string.find(s, '[cC]ontent%-[lL]ength: *(%d+)')
-	if x==nil then return -1 else return tonumber(x) end
-end
 
 function GetContentRange(s)
 	-- _,_,x = string.find(s, '[cC]ontent-[rR]ange:.*/(%d+)')
@@ -183,40 +150,19 @@ function GetContentRange(s)
 	if x==nil then return -1 else return x end
 end
 
-function GetAcceptRanges(s)
-	_,_,x = string.find(s, '[aA]ccept%-[rR]anges: *([^;\r\n]+)')
-	if x==nil then return -1 else return x end
+function GetContentLength(s)
+	_,_,x = string.find(s, '[cC]ontent%-[lL]ength: *(%d+)')
+	if x==nil then return -1 else return tonumber(x) end
 end
 
 --|
 --| Header Validation
 --|
 
-function GetContentEncoding(s)
-	_,_,x = string.find(s, '[cC]ontent%-[eE]ncoding: *(.-) *\r?\n')
-	if x==nil then return -1 else return string.lower(x) end
-end
-
 function GetOrigin(s)
 	_,_,x = string.find(s, '[oO]rigin: *([^;\r\n]+)')
 	if x==nil then return -1 else return x end
 	-- return re.find(s, '(?-s)(^Origin: (.+))', 2)
-end
-
-
-function GetCacheControl(s)
-	_,_,x = string.find(s, '[cC]ache%-[cC]ontrol: *([^;\r\n]+)')
-	if x==nil then return -1 else return x end
-end
-
-function GetAccept(s)
-	_,_,x = string.find(s, '[aA]ccept: *([^;\r\n]+)')
-	if x==nil then return -1 else return string.lower(x) end
-end
-
-function GetAcceptEncoding(s)
-	_,_,x = string.find(s, '[aA]ccept%-[eE]ncoding: *([^;\r\n]+)')
-	if x==nil then return -1 else return string.lower(x) end
 end
 
 --| URLHelper v1.0
@@ -255,11 +201,11 @@ function ConvertURLToSaveable(url,showlog)
 		parameter = re.replace(new_name, [[^.*?((/\?|\?|\,|\:|\;).*)]], '\\1')
 		xcrc = hc.crc32(parameter)
 		prextransform = hc.prepare_url(fullpath)
-		xtransform = hc.cache_path..prextransform..'\\'..xcrc
+		xtransform = prextransform..'\\'..xcrc
 		if showlog then hc.monitor_string = 'u1' end
 	else
 		prextransform = hc.prepare_url(new_name)
-		xtransform = hc.cache_path..prextransform
+		xtransform = prextransform
 		if showlog then hc.monitor_string = 'u2' end
 	end
 
@@ -279,10 +225,6 @@ end
 
 function isempty(s)
 	return s == nil or s == ''
-end
-
-function isInt(n)
-	return (type(n) == "number") and (math.floor(n) == n)
 end
 
 function isFileExist(name)

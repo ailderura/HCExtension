@@ -1,7 +1,7 @@
 --[[ <HCExtension>
 @name			Save-Hit [Cache-Control & Rewrite]
 @author			Faan
-@version		27 Juli 2021 - v1.2
+@version		30 Juli 2021 - v1.2.r1
 @description	Save-Hit by Cache-Control & Rewrite
 @exception 		fbcdn\.net\/v\/.*_n\.(mp4|webm)
 @exception 		^.*\.((googlevideo|drive\.google|youtube)\.com\/)videoplayback\?
@@ -17,8 +17,8 @@ function Init()
 	hc_static.SaveHitVarGlobal = {
 		['RewriteURL'] = '_StaticContent/', --#
 		['Skip'] = [[chromium/filters\.js\?|bitsum\.com/.*\.exe|\.qq\.com|/callback\.js|gcpvuclip.*\.ts]],
-		['SaveHit'] = [[\.(gif|jpe?g|png|webp|bmp|ico|svg(z)?|js|css|eot|woff(2)?|ttf|tif(f)?|otf)(\?|$)]],
-		['ForceSaveHit'] = [[\.(gif|jpe?g|png|webp|bmp|ico|svg(z)?)$]],
+		['Extension'] = [[\.(gif|jpe?g|png|webp|bmp|ico|svg(z)?|js|css|eot|woff(2)?|ttf|tif(f)?|otf)(\?|$)]],
+		['Extension_Force'] = [[\.(gif|jpe?g|png|webp|bmp|ico|svg(z)?)(\?|$)|(.*)\?(v[0-9.]+|v=|ver=)]],
 	} --#
 end
 
@@ -29,11 +29,11 @@ function RequestHeaderReceived()
 		hc.monitor_string = Monitor('wl')
 	else	
 		-- validate if url have criteria to process
-		if hc.method == 'GET' and re.match(hc.url, hc_static.SaveHitVarGlobal['SaveHit']) or re.match(hc.url, hc_static.SaveHitVarGlobal['RewriteURL']) then
+		if hc.method == 'GET' and re.match(hc.url, hc_static.SaveHitVarGlobal['Extension']) or re.match(hc.url, hc_static.SaveHitVarGlobal['RewriteURL']) then
 			-- call URLTransforming
 			hc.call_me_for('URLToFileNameConverting','URLToFileNameConverting')
 			-- if method GET and content not hit / Save-HIT Logic
-			if Hit() == false then				
+			if Hit() == false then
 				-- Call Save for checking content for saveable
 				hc.call_me_for('AnswerHeaderReceived','Save')
 			end
@@ -42,15 +42,10 @@ function RequestHeaderReceived()
 end
 
 function Hit()
-	-- cache exist and cache size > 0 
-	if isExist(hc.cache_file_name) == true and hc.cache_file_size > 0 then
-		--  skip if url have path validate-use-clen 
-		if re.match(hc.url, [[\/validate-use-clen\/]]) then 
-			return false 
-		else
-			ProcessHit('loaded')
-			return true
-		end
+	-- cache exist | cache size > 0 | url not have path validate-use-clen 
+	if isExist(hc.cache_file_name) == true and hc.cache_file_size > 0 and not re.match(hc.url, [[\/validate-use-clen\/]]) then
+		ProcessHit('loaded')
+		return true
 	end
 	return false
 end
@@ -88,63 +83,48 @@ end
 
 function Save()
 
-	local AnswerCode = GetAnswerCode(hc.answer_header)
+	-- skip if respon is 304 (cache browser) | 302 = skip url has redirect by header
+	if GetAnswerCode(hc.answer_header) == 304 or GetAnswerCode(hc.answer_header) == 302 then do return end end
 
-	-- skip if respon is 304 (cache browser)
-	if AnswerCode == 304 then do return end end
-
-	--  validate if url have path validate-use-clen > if Valid > skip
+	--  if url have path validate-use-clen > process validate cache using content length > if Valid > skip
 	if re.match(hc.url, [[\/validate-use-clen\/]]) and ValidateUseClen() == true then do return end end
 
+	-- if url has Rewrite > save
+	if re.match(hc.url, hc_static.SaveHitVarGlobal['RewriteURL']) then --#
+		ProcessSave('save.rw')
 	-- check answer_header if cache-control is saveable 
-	if isSaveable(hc.answer_header) == true then 
-		--# save from url who contain regex ListSaveHit
-		if re.match(hc.url, hc_static.SaveHitVarGlobal['SaveHit']) then
+	elseif isSaveableCC(hc.answer_header) == true then 
+		-- save from url who contain regex ListSaveHit
+		if re.match(hc.url, hc_static.SaveHitVarGlobal['Extension']) then
 			ProcessSave('save.cc.ext')
-		-- register on rewrite url in "URL-Rewrite.lua" url with cache-control is saveable
-		elseif re.match(hc.url, hc_static.SaveHitVarGlobal['RewriteURL']) then --#
-			-- if rewrite and answer code 206 > check length start
-			if AnswerCode == 206 then
-				if isContentRangeStart(hc.answer_header) then
-					ProcessSave('save.206.cc')
-				else
-					hc.monitor_string = Monitor('skip.206.cc')
-					hc.monitor_text_color = MonitorColor('purple')
-				end
-			else
-				ProcessSave('save.cc.rw')
-			end
 		else
 			-- hc.action = 'dont_save'
 			hc.monitor_text_color = MonitorColor('red')
-			hc.monitor_string = Monitor('not saveable.in.cc')						
+			hc.monitor_string = Monitor('out.criteria.in.cc')
 		end
-	-- register on rewrite url in "URL-Rewrite.lua" url without cache-control and check by ListSaveHit
-	-- #message : Force save with two validation
-	elseif re.match(hc.url, hc_static.SaveHitVarGlobal['RewriteURL']) then --#
-		--# save from url contain regex ListSaveHit
-		if re.match(hc.url, hc_static.SaveHitVarGlobal['SaveHit']) then
-			ProcessSave('save.out.cc.rw.ext')
-		-- if rewrite and answer code 206 > check length start
-		elseif AnswerCode == 206 then --#
-			if isContentRangeStart(hc.answer_header) then
-				ProcessSave('save.206.out.cc')
-			else
-				hc.monitor_string = Monitor('skip.206.out.cc')
-				hc.monitor_text_color = MonitorColor('purple')
-			end
-		end
+	-- force save without cc & rewrite
+	elseif re.match(hc.url, hc_static.SaveHitVarGlobal['Extension_Force']) then --#
+		ProcessSave('save.force')		
 	else
 		-- hc.action = 'dont_save'
 		hc.monitor_text_color = MonitorColor('purple')
-		hc.monitor_string = Monitor('not saveable.out.cc')
+		hc.monitor_string = Monitor('out.criteria')
 	end
 end
 
 function ProcessSave(log)
-	hc.action = 'save'
-	hc.monitor_string = Monitor(log)
-	hc.monitor_text_color = MonitorColor('green')
+	-- if answer code 206 > check isaveable206
+	if GetAnswerCode(hc.answer_header) == 206 and not IsSaveable206(hc.answer_header) then
+		hc.monitor_string = Monitor('skip.206')
+		hc.monitor_text_color = MonitorColor('purple')
+		do return end -- # skip process
+	else
+		-- add string 206 to log 
+		if GetAnswerCode(hc.answer_header) == 206 then log = log..'.206' end
+		hc.action = 'save'
+		hc.monitor_string = Monitor(log)
+		hc.monitor_text_color = MonitorColor('green')
+	end
 end
 
 function ValidateUseClen()
@@ -155,9 +135,9 @@ function ValidateUseClen()
 	return false
 end
 
-function URLToFileNameConverting(option)
+function URLToFileNameConverting()
 	-- register new file cache name
-	hc.preform_cache_file_name(ConvertURLToSaveable(xtransform,true)) 
+	hc.preform_cache_file_name(hc.cache_path..ConvertURLToSaveable(hc.url,true)) 
 end
 
 function BeforeViewInMonitor()
@@ -191,12 +171,14 @@ function BeforeViewInMonitor()
 		reWrite(rwUrl..re.substr(1)..re.substr(2),true)	
 	elseif re.find(url, [[^.*(s[0-9+]\.wp\.com\/)_static\/\?\?\/?(.*)]]) then --# wp static >> s2.wp.com/_static/??
 		reWrite(rwUrl..re.substr(1)..re.substr(2),true)
-	elseif re.find(url, [[^.*(t.*\.rbxcdn\.com\/.*)]]) then --# roblox cdn
+	elseif re.find(url, [[^.*\/\/(t.*\.rbxcdn\.com\/.*)]]) then --# roblox cdn
 		reWrite(rwUrl..'roblox-cdn/'..re.substr(1),true)
 	elseif re.find(url, [[^.*((tiktokcdn\.com\/(obj\/)?(tos-.*))\?.*|(tiktokcdn\.com\/obj\/.*)\?.*)]]) then --# tiktok cdn
 		reWrite(rwUrl..re.substr(1),true)		
 	elseif re.find(url, [[^.*(githubusercontent\.com\/.*)]]) then --# github avatar
 		reWrite(rwUrl..re.substr(1),true)
+	elseif re.find(url, [[^.*(tiktok(cdn)?.com\/).*(tos-.*)(\/.*)\/.*&br=([0-9]+)&bt=([0-9]+).*]]) then --# tiktok video
+		reWrite(rwUrl..'_TiktokVid'..re.substr(4)..'-'..re.substr(5)..'-'..re.substr(6)..'.mp4',true)
 
 	--[[ CERT SITE ]]--
 
@@ -209,11 +191,6 @@ function BeforeViewInMonitor()
 		reWrite(rwUrl..'chrome-update/'..re.substr(1),true)	
 	elseif re.find(url, [[^.*(googleapis.com\/update-delta\/.*)]]) then  --#
 		reWrite(rwUrl..'chrome-update/'..re.substr(1),true)
-
-	--[[ SAVE 206 ]]--	
-
-	elseif re.find(url, [[^.*(tiktok(cdn)?.com\/).*(tos-.*)(\/.*)\/.*&br=([0-9]+)&bt=([0-9]+).*]]) then --# tiktok video
-		reWrite(rwUrl..'_TiktokVid'..re.substr(4)..'-'..re.substr(5)..'-'..re.substr(6)..'.mp4',true)
 
 	--[[ PATCH GAME ]]--
 
